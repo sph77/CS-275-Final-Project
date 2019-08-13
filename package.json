@@ -1,0 +1,15 @@
+{
+   "name": "CS-275-Final-Project",
+   "version": "1.0.0",
+   "description": "Discussion boards for classes",
+   "main": "app.js",
+   "license": "GPL",
+   "repository": "github:sph77/CS-275-Final-Project",
+   "dependencies": {
+      "express": "^4.17.1",
+      "pug": "^2.0.4",
+      "sequelize": "^5.12.2",
+      "socket.io": "^2.2.0",
+      "sqlite3": "^4.0.9"
+   }
+}

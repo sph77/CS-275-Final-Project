@@ -1,0 +1,25 @@
+const express = require("express");
+const db = require("./config/database");
+const path = require("path");
+var sequelize = require('sequelize');
+
+const Op = sequelize.Op;
+
+const course = require("./models/Course");
+
+// Load in db, connection stored in ./config/database.js
+db.authenticate()
+   .then(() => console.log("Database connected"))
+   .catch(err => console.log(err))
+
+const app = express();
+// store all html files in ./public
+app.use(express.static(path.join(__dirname, "public")));
+
+// Routes
+app.get("/", (req, res) => {
+   res.status("200").send("Works");
+});
+
+const PORT = process.env.PORT || 40001;
+app.listen(PORT, console.log(`Server started on port ${PORT}`));
