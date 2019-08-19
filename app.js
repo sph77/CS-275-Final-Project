@@ -1,6 +1,7 @@
 const express = require("express");
 const db = require("./config/database");
 const path = require("path");
+const pug = require('pug');
 var sequelize = require('sequelize');
 
 const Op = sequelize.Op;
@@ -15,13 +16,15 @@ db.authenticate()
 const app = express();
 // store all html files in ./public
 app.use(express.static(path.join(__dirname, "public")));
+app.set("view engine", "pug");
+app.set("views", path.join(__dirname, "views"));
 
 // Routes
 app.get("/", (req, res) => {
    res.status("200").send("Works");
 });
 
-app.use("/api/courses", require("./routes/courses"));
+app.use("/courses", require("./routes/courses"));
 
 const PORT = process.env.PORT || 40001;
 app.listen(PORT, console.log(`Server started on port ${PORT}`));
