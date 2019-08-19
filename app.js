@@ -21,5 +21,7 @@ app.get("/", (req, res) => {
    res.status("200").send("Works");
 });
 
+app.use("/api/courses", require("./routes/courses"));
+
 const PORT = process.env.PORT || 40001;
 app.listen(PORT, console.log(`Server started on port ${PORT}`));
