@@ -1,182 +1,128 @@
 
 <!DOCTYPE html>
 <html>
-    <style>
-        #respond {
-  margin-top: 40px;
-}
-
-
-h1{
-    font-family: "Comic Sans MS";
-}
-
-.split {
-  height: 100%;
-  width: 50%;
-
-
-
-
-  padding-top: 20px;
-  border-radius: 25px;
-  border: 2px solid grey;
-  padding: 20px; 
-  /* width: 700px; */
-  height: 400px;
-  position: absolute;
-  bottom: 8px;
-  right: 16px;
-  font-size: 18px;
-
-
-}
-
-
-
-
-#comment1{
-    margin-bottom: 10px;
-  display: block;
-  width: 60%;
-  border: 3px solid rgba(128, 122, 122, 0.1);
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  -o-border-radius: 5px;
-  -ms-border-radius: 5px;
-  -khtml-border-radius: 5px;
-  border-radius: 5px;
-  line-height: 1.4em;
-    
-}
-.right {
-  left: 0;
-  background-color:rgba(192,192,192,0.3);
-  padding-top: 20px;
-  border-radius: 25px;
-  border: 2px solid grey;
-  padding: 20px; 
-  /* width: 700px; */
-  height: 400px;
-  position: absolute;
-  bottom: 8px;
-  right: 16px;
-  font-size: 18px;
-
-  
-  
-}
-
-
-
-  
-  
-
-::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-  color: grey;
-  opacity: 0.5;
-  font-family: "Comic Sans MS";
-  text-align: bottom;
-}
-#comment_author{
- 
--webkit-border-radius: 50px;
--moz-border-radius: 50px;
-border-radius: 50px;
-}
-textarea {
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
-    resize: none;
-}
-.required{
-    font-family: "Comic Sans MS";
-    
-}
-#submitButton{
-    font-family: "Comic Sans MS";
-}
-#respond input[type='text'],
-#respond input[type='email'], 
-#respond textarea {
-  margin-bottom: 10px;
-  display: block;
-  width: 100%;
-  border: 3px solid rgba(128, 122, 122, 0.1);
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  -o-border-radius: 5px;
-  -ms-border-radius: 5px;
-  -khtml-border-radius: 5px;
-  border-radius: 5px;
-  line-height: 1.4em;
-}
-    </style>
-    <body>
-        <h1>Make bubbles here FOR CS275</h1>
-        
-     <div id="comment">
-            <p1 id="comment1">Comment</p1>
-            <p1>&#8595;</p1>
-            <p1 id="comment1">Comment</p1>
-            <p1>&#8595;</p1>
-            <p1 id="comment1">Comment</p1>
-            <p1>&#8595;</p1>
-            <p1 id="comment1">Comment</p1>
-            <p1>&#8595;</p1>
-            <p1 id="comment1">Comment</p1>
-         
-         
-        
-         
-
-    
-    
-    
-    
-    </div>
-
-        <!-- we can have tow options comments over the text field 
-        ---
-        ---
-        ---
-        textbox
-        or     
-        text box and button on half the screen and commnets on the other half
-        -->
-        <div class="split right">
-
-            <!-- we can populate this div by querying the data base for existing comments, we can do it by a for loop and concatinating a string elemnet  -->
-        
-        <div id="respond">
-
+   <style>
+      #respond {
+      margin-top: 40px;
+      }
+      h1{
+      font-family: "Comic Sans MS";
+      }
+      .split {
+      height: 100%;
+      width: 50%;
+      padding-top: 20px;
+      border-radius: 25px;
+      border: 2px solid grey;
+      padding: 20px; 
+      /* width: 700px; */
+      height: 400px;
+      position: absolute;
+      bottom: 8px;
+      right: 16px;
+      font-size: 18px;
+      }
+      #comment1{
+      margin-bottom: 10px;
+      display: block;
+      width: 60%;
+      border: 3px solid rgba(128, 122, 122, 0.1);
+      -webkit-border-radius: 5px;
+      -moz-border-radius: 5px;
+      -o-border-radius: 5px;
+      -ms-border-radius: 5px;
+      -khtml-border-radius: 5px;
+      border-radius: 5px;
+      line-height: 1.4em;
+      }
+      .right {
+      left: 0;
+      background-color:rgba(192,192,192,0.3);
+      padding-top: 20px;
+      border-radius: 25px;
+      border: 2px solid grey;
+      padding: 20px; 
+      /* width: 700px; */
+      height: 400px;
+      position: absolute;
+      bottom: 8px;
+      right: 16px;
+      font-size: 18px;
+      }
+      ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+      color: grey;
+      opacity: 0.5;
+      font-family: "Comic Sans MS";
+      text-align: bottom;
+      }
+      #comment_author{
+      -webkit-border-radius: 50px;
+      -moz-border-radius: 50px;
+      border-radius: 50px;
+      }
+      textarea {
+      -webkit-border-radius: 5px;
+      -moz-border-radius: 5px;
+      border-radius: 5px;
+      resize: none;
+      }
+      .required{
+      font-family: "Comic Sans MS";
+      }
+      #submitButton{
+      font-family: "Comic Sans MS";
+      }
+      #respond input[type='text'],
+      #respond input[type='email'], 
+      #respond textarea {
+      margin-bottom: 10px;
+      display: block;
+      width: 100%;
+      border: 3px solid rgba(128, 122, 122, 0.1);
+      -webkit-border-radius: 5px;
+      -moz-border-radius: 5px;
+      -o-border-radius: 5px;
+      -ms-border-radius: 5px;
+      -khtml-border-radius: 5px;
+      border-radius: 5px;
+      line-height: 1.4em;
+      }
+   </style>
+   <body>
+      <h1>Make bubbles here FOR CS275</h1>
+      <div id="comment">
+         <p1 id="comment1">Comment</p1>
+         <p1>&#8595;</p1>
+         <p1 id="comment1">Comment</p1>
+         <p1>&#8595;</p1>
+         <p1 id="comment1">Comment</p1>
+         <p1>&#8595;</p1>
+         <p1 id="comment1">Comment</p1>
+         <p1>&#8595;</p1>
+         <p1 id="comment1">Comment</p1>
+      </div>
+      <!-- we can have tow options comments over the text field 
+         ---
+         ---
+         ---
+         textbox
+         or     
+         text box and button on half the screen and commnets on the other half
+         -->
+      <div class="split right">
+         <!-- we can populate this div by querying the data base for existing comments, we can do it by a for loop and concatinating a string elemnet  -->
+         <div id="respond">
             <h3 id="thoughts"><font face="Comic Sans MS">Thought Bubble</font></h3>
-          
             <form action="post_comment.php" method="post" id="commentform">
-          
-              <label for="comment_author" class="required"><font face="Comic Sans MS">Name</font></label>
-              <input type="text" name="comment_author" id="comment_author" value="" tabindex="1" required="required">
-          
-              
-          
-              <label for="comment" class="required">Thought</label>
-              <textarea name="comment" id="comment" rows="10" tabindex="3"  required="required" placeholder="Remember, be nice!"></textarea>
-          
-            
-              <input type="hidden" name="comment_post_ID" value="1" id="comment_post_ID" />
-              <button id="submitButton">Click ME</button>
-          
+               <label for="comment_author" class="required"><font face="Comic Sans MS">Name</font></label>
+               <input type="text" name="comment_author" id="comment_author" value="" tabindex="1" required="required">
+               <label for="comment" class="required">Thought</label>
+               <textarea name="comment" id="comment" rows="10" tabindex="3"  required="required" placeholder="Remember, be nice!"></textarea>
+               <input type="hidden" name="comment_post_ID" value="1" id="comment_post_ID" />
+               <button id="submitButton">Click ME</button>
             </form>
-          
-          </div>
-          </div>
-
-        
-
-
-
-          
-        </div>
-    </body>
+         </div>
+      </div>
+      </div>
+   </body>
 </html>
