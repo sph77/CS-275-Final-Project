@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+
+<html>
+    <style>
+.star-rating {
+  border:solid 1px #ccc;
+  display:flex;
+  flex-direction: row-reverse;
+  font-size:1.5em;
+  justify-content:space-around;
+  padding:0 .2em;
+  text-align:center;
+  width:5em;
+}
+
+.star-rating input {
+  display:none;
+}
+
+.star-rating label {
+  color:#ccc;
+  cursor:pointer;
+}
+
+.star-rating :checked ~ label {
+  color:black;
+}
+
+.star-rating label:hover,
+.star-rating label:hover ~ label {
+  color:grey;
+}
+
+
+
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: grey;
+  opacity: 0.5;
+  font-family: "Comic Sans MS";
+  text-align: bottom;
+}
+#comment_author{
+ 
+-webkit-border-radius: 50px;
+-moz-border-radius: 50px;
+border-radius: 50px;
+}
+textarea {
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    resize: none;
+}
+.required{
+    font-family: "Comic Sans MS";
+    
+}
+#submitButton{
+    font-family: "Comic Sans MS";
+}
+#respond input[type='text'],
+#respond input[type='email'], 
+#respond textarea {
+  margin-bottom: 10px;
+  display: block;
+  width: 100%;
+  border: 3px solid rgba(128, 122, 122, 0.1);
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -o-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -khtml-border-radius: 5px;
+  border-radius: 5px;
+  line-height: 1.4em;
+}
+#thoughtBubble{
+  background-color:rgba(192,192,192,0.3);
+  padding-top: 20px;
+  border-radius: 25px;
+  border: 2px solid grey;
+  padding: 20px; 
+  /* width: 700px; */
+  height: 400px;
+  width: 50%;
+  
+  position: absolute;
+  bottom: 8px;
+  right: 16px;
+  font-size: 18px;
+}
+
+#socketIo{
+  position: absolute;
+  bottom: 8px;
+  left: 16px;
+  font-size: 18px;
+}
+
+#comments{
+  position: absolute;
+  top: 8px;
+  right: 16px;
+  font-size: 18px;
+}
+    </style>
+    <body>
+        <div id="courceDes">Cource Description
+          <h1>cource name </h1>
+          <h2>
+            Professor Name:blah blah
+
+          </h2> 
+          <h2>
+            class description 
+          </h2>
+          <h3>rating ****(4.34)</h3>
+          
+        </div>
+        
+        <div id="socketIo">socket IO box right here</div>
+        <div id="comments">comments
+          
+        </div>
+        <div id="thoughtBubble">
+          <div id="respond">
+
+            <h3 id="thoughts"><font face="Comic Sans MS">Thought Bubble</font></h3>
+          
+            <form action="post_comment.php" method="post" id="commentform">
+          
+                <div class="star-rating">
+                    <input type="radio" id="5-stars" name="rating" value="5" />
+                    <label for="5-stars" class="star">&#9733;</label>
+                    <input type="radio" id="4-stars" name="rating" value="4" />
+                    <label for="4-stars" class="star">&#9733;</label>
+                    <input type="radio" id="3-stars" name="rating" value="3" />
+                    <label for="3-stars" class="star">&#9733;</label>
+                    <input type="radio" id="2-stars" name="rating" value="2" />
+                    <label for="2-stars" class="star">&#9733;</label>
+                    <input type="radio" id="1-star" name="rating" value="1" />
+                    <label for="1-star" class="star">&#9733;</label>
+                  </div>
+                  <br>
+          
+              
+          
+              <label for="comment" class="required">Thought</label><br>
+              <textarea name="comment" id="comment" rows="10" tabindex="3"  required="required" placeholder="Remember, be nice!"></textarea>
+          
+            
+              <input type="hidden" name="comment_post_ID" value="1" id="comment_post_ID" />
+              <button id="submitButton">Click ME</button>
+          
+            </form>
+          
+          </div>
+        </div>
+        </body>
+</html>
