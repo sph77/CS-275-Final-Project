@@ -64,6 +64,23 @@ function courses()
 	});
 }
 
+function search() {
+	var table = "<table><tr><th>Subject</th><th>Number</th><th>Title</th><th>Instructor</th><th>Discussion Page</th></tr>";
+	var subject = $("#subjectDrop").val();
+	var number = $("#numberDrop").val();
+	var title = $("#titleDrop").val();
+	var instructor = $("#instructorDrop").val();
+	for (var i=0; i < courseData.length; i++) {
+		var obj = courseData[i];
+		if (	(subject == "ALL" || subject == obj.subject) &&
+			(number == "ALL" || number == obj.number) &&
+			(title == "ALL" || title == obj.title) &&
+			(instructor == "ALL" || instructor == obj.instructor)	)
+		table += "<tr><td>" + obj.subject + "</td><td>" + obj.number + "</td><td>" + obj.title + "</td><td>" + obj.instructor + "</td><td><a href='../courses/" + obj.crn + "'>Discussion</a></td></tr>";
+	}
+	$("#table").html(table);
+}
+
 window.onload = function() {
 	courses(); // Load courses
 }
