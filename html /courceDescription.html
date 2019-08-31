@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 <html>
+  <script src="../socket/chat.js"></script>
     <style>
 .star-rating {
   border:solid 1px #ccc;
@@ -104,7 +105,7 @@ textarea {
   font-size: 18px;
 }
     </style>
-    <body>
+    <body onload="chat()">
         <div id="courceDes">Cource Description
           <h1>cource name </h1>
           <h2>
@@ -118,7 +119,12 @@ textarea {
           
         </div>
         
-        <div id="socketIo">socket IO box right here</div>
+        <div id="socketIo">
+          <div id="chatbox"></div>
+          <div id="typing"></div>
+          <input id="input"></input>
+          <button id="send">Send</button>
+        </div>
         <div id="comments">comments
           
         </div>
