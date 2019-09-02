@@ -2,6 +2,7 @@
 
 <html>
   <script src="../socket/chat.js"></script>
+  <script src=”https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
     <style>
 .star-rating {
   border:solid 1px #ccc;
@@ -120,6 +121,7 @@ textarea {
         </div>
         
         <div id="socketIo">
+          <div id="joined"></div>
           <div id="chatbox"></div>
           <div id="typing"></div>
           <input id="input"></input>
