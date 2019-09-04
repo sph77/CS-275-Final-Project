@@ -13,14 +13,14 @@ function courses()
 		},
 		success : function(json) { // On success, save and load table
 			courseData = json;
-			var table = "<table><tr><th>Subject</th><th>Number</th><th>Title</th><th>Instructor</th><th>Discussion Page</th></tr>";
-			var subjectDrop = "<select id='subjectDrop'><option value='ALL'>ALL</option>";
+			var table = "<table class='table'><tr><th>Subject</th><th>Number</th><th>Title</th><th>Instructor</th><th>Discussion Page</th></tr>";
+			var subjectDrop = "<select class='form-control form-control-sm' id='subjectDrop'><option value='ALL'>ALL</option>";
 			var subjects = ['ALL'];
-			var numberDrop = "<select id='numberDrop'><option value='ALL'>ALL</option>";
+			var numberDrop = "<select class='form-control form-control-sm' id='numberDrop'><option value='ALL'>ALL</option>";
 			var numbers = ['ALL'];
-			var titleDrop = "<select id='titleDrop'><option value='ALL'>ALL</option>";
+			var titleDrop = "<select class='form-control form-control-sm' id='titleDrop'><option value='ALL'>ALL</option>";
 			var titles = ['ALL'];
-			var instructorDrop = "<select id='instructorDrop'><option value='ALL'>ALL</option>";
+			var instructorDrop = "<select class='form-control form-control-sm' id='instructorDrop'><option value='ALL'>ALL</option>";
 			var instructors = ['ALL'];
 			for (var i=0; i < json.length; i++) {
 				var obj = json[i];
@@ -65,7 +65,7 @@ function courses()
 }
 
 function search() {
-	var table = "<table><tr><th>Subject</th><th>Number</th><th>Title</th><th>Instructor</th><th>Discussion Page</th></tr>";
+	var table = "<table class='table'><tr><th>Subject</th><th>Number</th><th>Title</th><th>Instructor</th><th>Discussion Page</th></tr>";
 	var subject = $("#subjectDrop").val();
 	var number = $("#numberDrop").val();
 	var title = $("#titleDrop").val();
