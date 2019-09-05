@@ -6,8 +6,6 @@ var sequelize = require('sequelize');
 
 const Op = sequelize.Op;
 
-const course = require("./models/Course");
-
 // Load in db, connection stored in ./config/database.js
 db.authenticate()
    .then(() => console.log("Database connected"))
@@ -25,6 +23,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/courses", require("./routes/courses"));
+app.use("/ratings", require("./routes/ratings"));
 
 const PORT = process.env.PORT || 40001;
 app.listen(PORT, console.log(`Server started on port ${PORT}`));
