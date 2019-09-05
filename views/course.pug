@@ -1,5 +1,135 @@
-html
-   body
-      h1 #{course.title}
-      p Welcome to #{course.subject} #{course.number}
-      p Instructor: #{course.instructor}
+doctype html
+title #{course.title}
+script(src='../socket/chat.js')
+script(src='”https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"')
+script(src='course.js')
+link(rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css' integrity='sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T' crossorigin='anonymous')
+script(src='https://code.jquery.com/jquery-3.3.1.slim.min.js' integrity='sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo' crossorigin='anonymous')
+script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js' integrity='sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1' crossorigin='anonymous')
+script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js' integrity='sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM' crossorigin='anonymous')
+style.
+  .star-rating {
+  display:flex;
+  flex-direction: row-reverse;
+  font-size:1.5em;
+  justify-content:space-around;
+  padding:0 .2em;
+  text-align:center;
+  width:5em;
+  }
+  .star-rating input {
+  display:none;
+  }
+  .star-rating label {
+  color:#ccc;
+  cursor:pointer;
+  }
+  .star-rating :checked ~ label {
+  color:gold;
+  }
+  .star-rating label:hover,
+  .star-rating label:hover ~ label {
+  color:grey;
+  }
+  ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: grey;
+  opacity: 0.5;
+  text-align: bottom;
+  }
+  #comment_author{
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  border-radius: 50px;
+  }
+  textarea {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  height: 100px;
+  resize: none;
+  }
+  .required{
+  }
+  #submitButton{
+  }
+  #respond input[type='text'],
+  #respond input[type='email'],
+  #respond textarea {
+  margin-bottom: 10px;
+  display: block;
+  width: 100%;
+  border: 3px solid rgba(128, 122, 122, 0.1);
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -o-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -khtml-border-radius: 5px;
+  border-radius: 5px;
+  line-height: 1.4em;
+  }
+  #thoughtBubble{
+  background-color:rgba(192,192,192,0.3);
+  padding-top: 20px;
+  border-radius: 25px;
+  border: 2px solid grey;
+  padding: 20px;
+  /* width: 700px; */
+  height: 400px;
+  width: 50%;
+  position: absolute;
+  bottom: 8px;
+  right: 16px;
+  font-size: 18px;
+  }
+  #socketIo{
+  position: absolute;
+  bottom: 8px;
+  left: 16px;
+  font-size: 18px;
+  }
+  #comments{
+  position: absolute;
+  top: 8px;
+  right: 16px;
+  font-size: 18px;
+  }
+#courceDes.container-fluid
+  | #CRN: {course.crn}
+  h1 #{course.subject} #{course.number}
+  h2
+    | Professor : #{course.instructor}
+  h2
+    | #{course.title}
+  h3 Rating ****(4.34)
+#socketIo
+  #joined
+  #chatbox
+  #typing
+  .input-group.mb-3
+    input#input.form-control(type='text' placeholder='send a message!' aria-label='msg' aria-describedby='basic-addon2')
+    .input-group-append
+      button#send.btn.btn-primary(type='button') Send chat
+#comments
+  | comments
+#thoughtBubble
+  #respond
+    h3#thoughts Thought Bubble
+    form#commentform
+      .form-group
+        .star-rating
+          input#5-stars(type='radio' name='rating' value='5')
+          label.star(for='5-stars') &starf;
+          input#4-stars(type='radio' name='rating' value='4')
+          label.star(for='4-stars') &starf;
+          input#3-stars(type='radio' name='rating' value='3')
+          label.star(for='3-stars') &starf;
+          input#2-stars(type='radio' name='rating' value='2')
+          label.star(for='2-stars') &starf;
+          input#1-star(type='radio' name='rating' value='1')
+          label.star(for='1-star') &starf;
+        br
+        label.required(for='comment') Thought
+        br
+        textarea#comment(name='comment' rows='10' tabindex='3' required='required' placeholder='Remember, be nice!')
+        input#comment_post_ID(type='hidden' name='comment_post_ID' value='1')
+        button#submitButton.btn.btn-primary(type='submit') Send thought

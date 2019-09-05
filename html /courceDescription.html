@@ -1,11 +1,16 @@
 <!DOCTYPE html>
 
 <html>
+<title> Course Name </title>
   <script src="../socket/chat.js"></script>
   <script src=”https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
-    <style>
+  <script src="course.js"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <style>
 .star-rating {
-  border:solid 1px #ccc;
   display:flex;
   flex-direction: row-reverse;
   font-size:1.5em;
@@ -25,7 +30,7 @@
 }
 
 .star-rating :checked ~ label {
-  color:black;
+  color:gold;
 }
 
 .star-rating label:hover,
@@ -39,7 +44,6 @@
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
   color: grey;
   opacity: 0.5;
-  font-family: "Comic Sans MS";
   text-align: bottom;
 }
 #comment_author{
@@ -52,14 +56,13 @@ textarea {
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;
+    height: 100px;
     resize: none;
 }
 .required{
-    font-family: "Comic Sans MS";
     
 }
 #submitButton{
-    font-family: "Comic Sans MS";
 }
 #respond input[type='text'],
 #respond input[type='email'], 
@@ -106,17 +109,17 @@ textarea {
   font-size: 18px;
 }
     </style>
-    <body onload="chat()">
-        <div id="courceDes">Cource Description
-          <h1>cource name </h1>
+    <body>
+        <div id="courceDes" class="container-fluid">CRN here
+          <h1>Course ID here</h1>
           <h2>
-            Professor Name:blah blah
+            Professor : name here
 
           </h2> 
           <h2>
-            class description 
+            Class Name here
           </h2>
-          <h3>rating ****(4.34)</h3>
+          <h3>Rating ****(4.34)</h3>
           
         </div>
         
@@ -124,8 +127,12 @@ textarea {
           <div id="joined"></div>
           <div id="chatbox"></div>
           <div id="typing"></div>
-          <input id="input"></input>
-          <button id="send">Send</button>
+	  <div class="input-group mb-3">
+		  <input type="text" id="input" class="form-control" placeholder="send a message!" aria-label="msg" aria-describedby="basic-addon2">
+		  <div class="input-group-append">
+			  <button class="btn btn-primary" type="button" id="send">Send chat</button>
+		  </div>
+	  </div>
         </div>
         <div id="comments">comments
           
@@ -133,10 +140,10 @@ textarea {
         <div id="thoughtBubble">
           <div id="respond">
 
-            <h3 id="thoughts"><font face="Comic Sans MS">Thought Bubble</font></h3>
+            <h3 id="thoughts">Thought Bubble</h3>
           
-            <form action="post_comment.php" method="post" id="commentform">
-          
+            <form id="commentform">
+         	<div class="form-group"> 
                 <div class="star-rating">
                     <input type="radio" id="5-stars" name="rating" value="5" />
                     <label for="5-stars" class="star">&#9733;</label>
@@ -148,7 +155,7 @@ textarea {
                     <label for="2-stars" class="star">&#9733;</label>
                     <input type="radio" id="1-star" name="rating" value="1" />
                     <label for="1-star" class="star">&#9733;</label>
-                  </div>
+		</div>
                   <br>
           
               
@@ -158,8 +165,8 @@ textarea {
           
             
               <input type="hidden" name="comment_post_ID" value="1" id="comment_post_ID" />
-              <button id="submitButton">Click ME</button>
-          
+              <button type="submit" class="btn btn-primary" id="submitButton">Send thought</button>
+		</div>
             </form>
           
           </div>
