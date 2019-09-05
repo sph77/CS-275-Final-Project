@@ -1,5 +1,5 @@
 doctype html
-title #{course.title}
+title  #{course.title}
 script(src='../socket/chat.js')
 script(src='”https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"')
 script(src='course.js')
@@ -94,8 +94,8 @@ style.
   font-size: 18px;
   }
 #courceDes.container-fluid
-  | #CRN: {course.crn}
-  h1 #{course.subject} #{course.number}
+  #CRNdiv #{course.crn}
+  h1 #{course.title} #{course.number}
   h2
     | Professor : #{course.instructor}
   h2
