@@ -8,7 +8,7 @@ const Rating = db.define('ratings', {
       primaryKey: true
    },
    rating: {
-      type: Sequelize.INTEGER
+      type: Sequelize.REAL
    },
    count: {
       type: Sequelize.INTEGER

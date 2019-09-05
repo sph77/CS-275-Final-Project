@@ -29,4 +29,30 @@ router.get("/:crn", (req, res) => {
    .catch(err => console.log(err))
 });
 
+router.post("/:crn", (req, res) => {
+   rating.findAll({
+      where: {
+         crn: req.params.crn
+      }
+   })
+   .then(ratings => {
+      if (ratings.length != 1)
+      {
+         ratings.sendStatus(404);
+      }
+      else
+      {
+         var ratingVal = ratings[0].rating;
+	 var countVal = ratings[0].count;
+	 countVal += 1;
+	 ratingVal += parseInt(req.body.rating); 
+	 rating.update( { rating: ratingVal, count: countVal }, { where: { crn: req.params.crn } })
+	      .then(result => { res.sendStatus(200)
+	      })
+	      .catch(err => res.sendStatus(500))
+      }
+   })
+   .catch(err => console.log(err))
+});
+
 module.exports = router;

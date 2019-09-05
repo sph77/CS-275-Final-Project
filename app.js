@@ -2,6 +2,7 @@ const express = require("express");
 const db = require("./config/database");
 const path = require("path");
 const pug = require('pug');
+const bodyParser = require('body-parser');
 var sequelize = require('sequelize');
 
 const Op = sequelize.Op;
@@ -14,6 +15,7 @@ db.authenticate()
 const app = express();
 // store all html files in ./public
 app.use(express.static(path.join(__dirname, "public")));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.set("view engine", "pug");
 app.set("views", path.join(__dirname, "views"));
 
