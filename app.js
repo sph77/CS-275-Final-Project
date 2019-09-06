@@ -26,6 +26,7 @@ app.get("/", (req, res) => {
 
 app.use("/courses", require("./routes/courses"));
 app.use("/ratings", require("./routes/ratings"));
+app.use("/comments", require("./routes/comments"));
 
 const PORT = process.env.PORT || 40001;
 const server =app.listen(PORT, console.log(`Server started on port ${PORT}`));

@@ -19,7 +19,7 @@ router.get("/:crn", (req, res) => {
    .then(ratings => {
       if (ratings.length != 1)
       {
-         ratings.sendStatus(404);
+         res.sendStatus(404);
       }
       else
       {
@@ -38,7 +38,7 @@ router.post("/:crn", (req, res) => {
    .then(ratings => {
       if (ratings.length != 1)
       {
-         ratings.sendStatus(404);
+         res.sendStatus(404);
       }
       else
       {

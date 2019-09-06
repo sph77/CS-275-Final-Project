@@ -51,6 +51,7 @@ function chat(){
 		message: text.value,
 		time: now,
 		})
+		text.value = "";
 	});
 
 	socket.on("join",function(data){
