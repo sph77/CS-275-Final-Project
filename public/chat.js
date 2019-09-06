@@ -7,13 +7,13 @@ function chat(){
 	var joined = document.getElementById("joined");
 	var User= prompt("Please enter your name");
 	var CRN = $("#CRNdiv").text();
-	var count=setInterval(function(){typing.innerHTML=""},10000)
-	var join_count=setInterval(function(){joined.innerHTML=""},10000)
+	var count=setInterval(function(){typing.innerHTML=" "},10000)
+	var join_count=setInterval(function(){joined.innerHTML=" "},10000)
 
 	//join chatroom
 	socket.emit('join',{crn: CRN, user: User});
 	clearInterval(join_count)
-	join_count=setInterval(function(){joined.innerHTML=""},10000)
+	join_count=setInterval(function(){joined.innerHTML=" "},10000)
 
 
 	/*$.ajax({
@@ -39,6 +39,13 @@ function chat(){
 			crn: CRN,
 			user: User
 		})
+	})
+
+	text.addEventListener('keyup', function(){
+		if (event.keyCode === 13) { // Enter was pressed
+			event.preventDefault();
+			btn.click();
+		}
 	})
 
 	//send message
