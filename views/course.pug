@@ -8,6 +8,33 @@ script(src='https://code.jquery.com/jquery-3.3.1.min.js')
 script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js' integrity='sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1' crossorigin='anonymous')
 script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js' integrity='sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM' crossorigin='anonymous')
 style.
+  #chatbox {
+  overflow: auto; 
+  width: 500px; 
+  height: 500px; 
+  display: flex;
+  flex-direction: column-reverse;
+  }
+  #comments {
+  overflow: auto; 
+  width: 500px; 
+  height: 500px; 
+  display: flex;
+  flex-direction: column-reverse;
+  }
+  #comment1{
+  margin-bottom: 10px;
+  display: block;
+  width: 60%;
+  border: 3px solid rgba(128, 122, 122, 0.1);
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -o-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -khtml-border-radius: 5px;
+  border-radius: 5px;
+  line-height: 1.4em;
+  }
   .star-rating {
   display:flex;
   flex-direction: row-reverse;

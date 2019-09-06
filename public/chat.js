@@ -6,7 +6,7 @@ function chat(){
 	var typing = document.getElementById("typing");
 	var joined = document.getElementById("joined");
 	var User= prompt("Please enter your name");
-	var CRN = prompt("Please enter your CRN");
+	var CRN = $("#CRNdiv").text();
 	var count=setInterval(function(){typing.innerHTML=""},10000)
 	var join_count=setInterval(function(){joined.innerHTML=""},10000)
 
@@ -64,13 +64,13 @@ function chat(){
 
 	//display messages
 	socket.on("chat",function(data){
-		chatbox.innerHTML += "<p><strong>"+data.user+":<strong>"+data.message+"</p>"
+		chatbox.innerHTML = "<p><strong>"+data.user+": </strong>"+data.message+"</p>" + chatbox.innerHTML;
 	})
 
 	//display saved messages
 	socket.on("display",function(data){
 		for(var i=0;i<data.length;i++){
-			chatbox.innerHTML += "<p><strong>"+data[i].user+": <strong>"+data[i].message+"</p>"
+			chatbox.innerHTML += "<p><strong>"+data[i].user+": </strong>"+data[i].message+"</p>"
 		}
 	})
 }
