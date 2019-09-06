@@ -28,4 +28,5 @@ app.use("/courses", require("./routes/courses"));
 app.use("/ratings", require("./routes/ratings"));
 
 const PORT = process.env.PORT || 40001;
-app.listen(PORT, console.log(`Server started on port ${PORT}`));
+const server =app.listen(PORT, console.log(`Server started on port ${PORT}`));
+require('./socket/socket.js')(server)

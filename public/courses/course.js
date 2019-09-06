@@ -86,4 +86,5 @@ function sendthot()
 
 window.onload = function() {
 	getrating(); // Load rating
+	chat();//Load messaging
 }

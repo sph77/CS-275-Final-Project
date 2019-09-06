@@ -1,32 +1,32 @@
 const express = require('express');
-const app = express()
-const socket = require('socket.io');
+const sock = require('socket.io')
 const db = require('../config/database');
 
 //socket.io
 var users={};
 var rooms={}
-module.exports = function(io){
+module.exports = function(server){
+	const io = sock(server)
 	io.on('connection',(socket) =>{
 		console.log("connection")
 
 		//join user to a room
 		socket.on('join',(room) =>{
-			if(rooms[room] != []){
-				var temp = rooms[room]
+			if(rooms[room.crn] != null){
+				var temp = rooms[room.crn]
 				temp.push(socket.id)
 			}
 			else{
-				rooms[room]=[socket.id]
+				rooms[room.crn]=[socket.id]
 			}
-			socket.join(room)
-			io.to(data.crn).emit('join',room)
+			socket.join(room.crn)
+			io.to(room.crn).emit('join',room)
 		})
 
 		//send messages to whoever is in the room
 		socket.on('message',(data) =>{
-			db.each('insert into messages values(?,?,?,?)',[data.crn,data.user,data.message,data.time])
-			io.to(data.crn).emit('chat',data)
+			//db.each('insert into messages values(?,?,?,?)',[data.crn,data.user,data.message,data.time])
+			io.in(data.crn).emit('chat',data)
 		})
 
 		//Check whose on
